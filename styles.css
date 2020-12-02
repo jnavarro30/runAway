@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body, .container {
+  height: 100%;
+}
+
+.container {
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#grid {
+  position: relative;
+  background-color: lightblue;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (60px)[10];
+      grid-template-columns: repeat(10, 60px);
+  -ms-grid-rows: (60px)[10];
+      grid-template-rows: repeat(10, 60px);
+  width: 600px;
+  height: 600px;
+}
+
+#grid .item {
+  border: 1px solid black;
+}
+
+#character {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+
+#character_sprite {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  z-index: 10;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+}
+
+#character_shadow {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+}
+
+.face_right {
+  top: -60px;
+}
+
+.face_up {
+  top: -120px;
+}
+
+.face_left {
+  top: -180px;
+}
+
+.walking_motion {
+  -webkit-animation: walkingMotion 1s steps(4) infinite;
+          animation: walkingMotion 1s steps(4) infinite;
+}
+
+@-webkit-keyframes walkingMotion {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+}
+
+@keyframes walkingMotion {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+}
+
+#monster {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: red;
+  overflow: hidden;
+}
+
+.monster {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: red;
+  overflow: hidden;
+  border: 2px solid black;
+}
+
+.caught {
+  left: -60px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.stats {
+  color: white;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 60px;
+  width: 50%;
+  left: 25%;
+  font-size: 1.4rem;
+  border: 2px solid lightblue;
+}
+
+.stats p {
+  padding: 1rem;
+}
+
+.stats .lives {
+  color: lightblue;
+  outline: red;
+}
+
+.stats .lives span {
+  color: white;
+}
+
+.stats .lives:hover {
+  cursor: pointer;
+}
+
+.stats .monsters {
+  color: red;
+}
+
+.stats .monsters span {
+  color: white;
+}
+
+.stats .monsters:hover {
+  cursor: pointer;
+}
+
+.stats .speed:hover {
+  cursor: pointer;
+}
+
+.stats button {
+  color: white;
+  font-size: 2rem;
+  background: none;
+  border: none;
+}
+
+.stats button:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */

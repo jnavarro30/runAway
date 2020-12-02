@@ -1,0 +1,21 @@
+#monster {
+    position: absolute;
+    width: $gridSize * .1;
+    height: $gridSize * .1;
+    background: red;
+    overflow: hidden;
+}
+
+.monster {
+    position: absolute;
+    width: $gridSize * .1;
+    height: $gridSize * .1;
+    background: red;
+    overflow: hidden;
+    border: 2px solid black;
+}
+
+.caught {
+    left: -$cellSize;
+    transform: rotate(-90deg);
+}

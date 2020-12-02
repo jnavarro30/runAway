@@ -1,0 +1,41 @@
+// settings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, .container {
+    height: 100%;
+}
+
+.container {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// variables
+$gridSize: 600px;
+$cellSize: $gridSize / 10;
+
+#grid {
+    position: relative;
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(10, $gridSize / 10);
+    grid-template-rows: repeat(10, $gridSize / 10);
+    width: $gridSize;
+    height: $gridSize;
+    
+    .item {
+        border: 1px solid black;
+    }
+}
+
+@import 'partials/character';
+
+@import 'partials/monster';
+
+@import 'partials/stats';

@@ -1,0 +1,51 @@
+#character {
+    position: absolute;
+    width: $gridSize * .1;
+    height: $gridSize * .1;
+    overflow: hidden;
+}
+
+#character_sprite {
+    position: absolute;
+    width: $gridSize * .4;
+    height: $gridSize * .4;
+    z-index: 10;
+    image-rendering: pixelated;
+}
+
+#character_shadow {
+    position: absolute;
+    width: $gridSize * .1;
+    height: $gridSize * .1;
+    z-index: 10;
+    image-rendering: pixelated;
+}
+
+// classes
+
+.face_right {
+    top: $gridSize * -.1;
+}
+
+.face_up {
+    top: $gridSize * -.2;
+}
+
+.face_left {
+    top: $gridSize * -.3;
+}
+
+
+.walking_motion {
+    animation: walkingMotion 1s steps(4) infinite;
+}
+
+@keyframes walkingMotion {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-100%, 0);
+    }
+}
