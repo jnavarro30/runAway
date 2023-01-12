@@ -2,16 +2,15 @@ import { characterLocation, characterMovement } from '../script.js';
 
 // cache the DOM
 const gridEl = document.getElementById("grid"),
-      spriteEl = document.getElementById('character_sprite'),
-      monsterEl = document.getElementById("monster");
+      spriteEl = document.getElementById('character_sprite');
 
 // grid settings
 let gridSize =  parseInt(window.getComputedStyle(gridEl).width),    
     gridCell = gridSize / 10;
 
 // game settings
-export const MONSTER_SPEED = 1,
-      MONSTER_COUNT = 5; // 5 max for now...
+export let MONSTER_SPEED = 3,
+      MONSTER_COUNT = 1; // 5 max for now...
 
 // class
 class Monster {
@@ -56,7 +55,7 @@ class Monster {
         document.getElementById(this.id).style.left = this.x + "px";
         document.getElementById(this.id).style.top = this.y + "px";
      
-        let timer = setInterval(cell => {
+        let timer = setInterval(() => {
              // boundaries
              if ((this.x - gridCell) < 0 || this.x > (gridSize - gridCell * 2)) 
                 this.dx = -this.dx;
@@ -71,18 +70,15 @@ class Monster {
              clearInterval(timer);
              spriteEl.classList.add('caught')
              window.removeEventListener('keydown', characterMovement);
-             console.log('you died...')
+
+             setTimeout(() => {
+                alert('Captured!');
+                window.location.reload();
+             }, 500);
              }
          }, 1000 / MONSTER_SPEED)
      }
 }
-
-
-
-
-
-
-
 
 // generate monsters
 export let mArr = [];
@@ -96,16 +92,14 @@ const monsterGenerator = num => {
     mArr.forEach(monster => monster.activate());
 }
 
-monsterGenerator(MONSTER_COUNT);
-
-
+// start game on click
+gridEl.addEventListener('click', (e) => {
+    monsterGenerator(MONSTER_COUNT);
+}, { once: true })
 
 // monster collision
 // constant check in realtime
 // animation loop
-
-
-
 
 let collision = setInterval(_ => {
     mArr.forEach((monster, index, arr) => {

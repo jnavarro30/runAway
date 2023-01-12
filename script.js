@@ -4,10 +4,8 @@ import { mArr as monsterArray } from './modules/monster.js';
 
 // cache the DOM
 const gridEl = document.getElementById("grid"),
-      itemEls = document.getElementsByClassName("item"),
       characterEl = document.getElementById('character'),
-      spriteEl = document.getElementById('character_sprite'),
-      shadowEl = document.getElementById('character_shadow');
+      spriteEl = document.getElementById('character_sprite');
 
 // grid settings
 let gridSize =  parseInt(window.getComputedStyle(gridEl).width),    
@@ -54,8 +52,6 @@ const walkDirection = cls => {
         if (monster.x === characterLocation.x && monster.y === characterLocation.y) {
             spriteEl.classList.add('caught')
             window.removeEventListener('keydown', characterMovement);
-            console.log('you died...')
-            
         }
     })
 }
@@ -78,18 +74,6 @@ export const characterMovement = e => {
     }
 }
 
-
 // listeners
 window.addEventListener('keydown', characterMovement);
-
 window.addEventListener('keyup', _ => spriteEl.classList.remove('walking_motion'))
-
-
-
-
-
-
-
-// lives, restart, objective, game over
-
-/// finish up game
